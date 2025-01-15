@@ -4,6 +4,44 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
 import org.springframework.web.socket.config.annotation.*;
 
+/**
+ * WebSockety to protokół komunikacyjny,
+ * który umożliwia dwukierunkową,
+ * pełnodupleksową komunikację w czasie rzeczywistym między klientem (np. przeglądarką)
+ * a serwerem za pośrednictwem jednego, trwałego połączenia TCP.
+ *
+ * Jak działają WebSockety?
+ * 1. Handshake HTTP:
+ *
+ *      Połączenie WebSocket rozpoczyna się jako zwykłe żądanie HTTP (tzw. handshake)
+ *      z nagłówkiem Upgrade,
+ *      który informuje serwer o chęci nawiązania połączenia WebSocket.
+ *      Przykładowy nagłówek:
+ *
+ *          GET /ws HTTP/1.1
+ *          Host: example.com
+ *          Upgrade: websocket
+ *          Connection: Upgrade
+ * 2.Trwałe połączenie:
+ *
+ *      Po zaakceptowaniu przez serwer,
+ *      połączenie jest "promowane" do WebSocket i pozostaje otwarte.
+ *      Wysyłanie i odbieranie danych:
+ *
+ * 3. Po nawiązaniu połączenia,
+ *      dane mogą być przesyłane w obu kierunkach bez potrzeby dodatkowych zapytań HTTP.
+ *
+ * Przykłady zastosowania WebSocketów:
+ *  Aplikacje czasu rzeczywistego:
+ *      Czat (np. komunikatory internetowe).
+ *      Powiadomienia w czasie rzeczywistym.
+ *      Gry online.
+ *  Systemy monitorowania:
+ *      Aktualizacja danych w czasie rzeczywistym (np. monitorowanie systemów, wykresy).
+ *  Aplikacje IoT:
+ *      Sterowanie urządzeniami w czasie rzeczywistym.
+ */
+
 @Configuration
 @EnableWebSocketMessageBroker
 public class WebSocketConfiguration implements WebSocketMessageBrokerConfigurer {
