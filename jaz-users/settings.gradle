@@ -1,1 +1,9 @@
 rootProject.name = 'jaz-users'
+
+// Multi-module build. Import this root project in IntelliJ.
+include 'users-data', 'users-random-api-client', 'users-data-updater', 'users-web-api'
+
+project(':users-data').projectDir = new File(settingsDir, 'users-data')
+project(':users-random-api-client').projectDir = new File(settingsDir, 'users-random-api-client')
+project(':users-data-updater').projectDir = new File(settingsDir, 'users-data-updater')
+project(':users-web-api').projectDir = new File(settingsDir, 'users-web-api')
